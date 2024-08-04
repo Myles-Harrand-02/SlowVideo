@@ -24,9 +24,9 @@
 
     <Style Selector="NumericUpDown.perc">
       <Setter Property="Watermark" Value="Percent" />
-      <Setter Property="Maximum" Value="4" />
-      <Setter Property="Increment" Value="0.01" />
-      <Setter Property="FormatString" Value="0%" />
+      <Setter Property="Maximum" Value="400" />
+      <Setter Property="Increment" Value="1" />
+      <Setter Property="FormatString" Value="0\%" />
     </Style>
 
     <Style Selector="Button.perc">
@@ -128,6 +128,7 @@
             <Button Classes="perc" Margin="5, 0">1/2</Button>
             <Button Classes="perc" Margin="5, 0">1/3</Button>
             <Button Classes="perc" Margin="5, 0">1/4</Button>
+            <Button Classes="perc" Margin="5, 0" Command="{Binding ResetSpd}">Reset</Button>
           </StackPanel>
           
         </Grid>
@@ -155,7 +156,7 @@
           </CheckBox>
 
           <!-- Row 2 -->
-          <Label Grid.Column="0" Grid.Row="1" Margin="5">Audio Location</Label>
+          <Label Grid.Column="0" Grid.Row="1" Margin="5" IsEnabled="{Binding ElementName=ab2, Path=IsChecked}">Audio Location</Label>
 
           <Button Grid.Column="1" Grid.Row="1" Margin="5" Width="125" Height="28" IsEnabled="{Binding ElementName=ab2, Path=IsChecked}"></Button>
           

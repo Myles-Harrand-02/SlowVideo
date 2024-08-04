@@ -7,9 +7,9 @@ namespace GetStartedApp.Views;
 
 public partial class MainWindow : Window
 {
-    private decimal? _spd;
+    private int _spd;
 
-    public decimal? Spd;
+    public int Spd;
 
     public MainWindow()
     {
@@ -19,6 +19,6 @@ public partial class MainWindow : Window
     private void ValChanged(object sender, NumericUpDownValueChangedEventArgs args)
     {
         Trace.WriteLine("It Changed!");
-        Spd = NUP1.Value;
+        Spd = Convert.ToInt32(Math.Round((decimal)NUP1.Value, 0));
     }
 }

@@ -57,6 +57,7 @@ public class MainWindowViewModel : ViewModelBase
     public ICommand HalfSpd { get; }
     public ICommand ThirdSpd { get; }
     public ICommand QuarterSpd { get; }
+    public ICommand ResetSpd { get; }
 
     public MainWindowViewModel()
     {
@@ -64,5 +65,6 @@ public class MainWindowViewModel : ViewModelBase
         HalfSpd = ReactiveCommand.Create(() => Spd = Spd / 2);
         ThirdSpd = ReactiveCommand.Create(() => Spd = Spd  / 3);
         QuarterSpd = ReactiveCommand.Create(() => Spd = Spd / 4);
+        ResetSpd = ReactiveCommand.Create(() => Spd = 0);
     }
 }
