@@ -8,8 +8,8 @@
         MinHeight="435" MinWidth="700"
         x:Class="GetStartedApp.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="TemperatureConverter"
+        Icon="/Assets/BDBA-Transparent.ico"
+        Title="BDBA - Video Encoder"
         Background="#141414">
   
   <!-- Styles -->
@@ -43,10 +43,11 @@
 
   <Grid RowDefinitions="Auto, *, Auto" TextElement.Foreground="#fcfcfc" Focusable="True">
     
-    <Grid Grid.Row="0" ShowGridLines="False" 
+    <Grid Grid.Row="0" ShowGridLines="False"
       Height="60" Background="#3c3c3c"
       ColumnDefinitions="Auto, Auto, *, Auto, Auto">
       
+      <!--
       <Button Grid.Column="0" Width="70" CornerRadius="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#636363">
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28">HI</Label>
       </Button>
@@ -54,10 +55,15 @@
       <Button Grid.Column="1" Width="80" CornerRadius="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#505050">
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28">BYE</Label>
       </Button>
+      -->
+
+      <Rectangle Grid.Column="0" Width="70" Fill="#636363"></Rectangle>
+
+      <Rectangle Grid.Column="1" Width="80" Fill="#505050"></Rectangle>
       
       <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
         <Label FontWeight="Black" FontSize="36">BDBA</Label>
-        <Label FontSize="36">VIDEO INFO</Label>
+        <Label FontSize="36">VIDEO ENCODER</Label>
       </StackPanel>
       
       <Rectangle Grid.Column="3" Width="80" Fill="#505050"></Rectangle>
@@ -65,7 +71,7 @@
       <Rectangle Grid.Column="4" Width="70" Fill="#636363"></Rectangle>
     </Grid>
 
-    <Grid Grid.Row="1" ColumnDefinitions="Auto, *">
+    <Grid Grid.Row="1" ColumnDefinitions="Auto, *, 50">
 
       <Grid Grid.Column="0" RowDefinitions="Auto, Auto, Auto, Auto, Auto" Background="#262626">
 
@@ -95,7 +101,8 @@
           <!-- Row 2 -->
           <Label Grid.Column="0" Grid.Row="2" Margin="5">Output Location</Label>
 
-          <Button Grid.Column="1" Grid.Row="2" Margin="5" Width="125" Height="28"></Button>
+          <Button Grid.Column="1" Grid.Row="2" Margin="5" Width="125" Height="28"
+                  Click="btnOutput" Name="outputDir" />
 
           <!-- Row 3 -->
           <Grid Grid.Column="0" Grid.Row="3" ColumnDefinitions="90, Auto">
@@ -166,15 +173,75 @@
 
       <Grid Grid.Column="1">
 
+        <!-- File Selector Area -->
         <Border Background="#262626" CornerRadius="10" Padding="10" Margin="10" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+          
+          <!-- File Selector Button -->
+          <Button Background="#262626" CornerRadius="10" Click="btnFileOpen"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            
+            <!-- File Selector Details -->
+            <Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto, 40, Auto">
+              
+              <!-- Row 0 -->
+              <TextBlock Grid.Column="0" Margin="1, 0" Name="fileCounter" />
+
+              <!-- Row 1 -->
+              <TextBlock Grid.Column="0" Grid.Row="1" Margin="1, 2">File Types:</TextBlock>
+              <TextBlock Grid.Column="1" Grid.Row="1" Margin="1, 2" Name="fileTypes" />
+
+              <!-- Row 2 -->
+              <TextBlock Grid.Column="0" Grid.Row="2" Margin="1, 2">Total Size:</TextBlock>
+              <TextBlock Grid.Column="1" Grid.Row="2" Margin="1, 2" Name="fileSize" />
+
+              <!-- Row 3 -->
+              <TextBlock Grid.Column="0" Grid.Row="3" Margin="1, 2" Name="fileTimeName"></TextBlock>
+              <TextBlock Grid.Column="1" Grid.Row="3" Margin="1, 2" Name="fileTime" />
+
+              <!-- Row 4 -->
+              <TextBlock Grid.Column="1" Grid.Row="4" Margin="1, 2" Foreground="Red" Name="fileWarn" />
+            </Grid>
+          </Button>
         </Border>
         
+      </Grid>
+
+      <!-- Right Column (Probably Temporary) -->
+      <Grid Grid.Column="2" RowDefinitions="*, Auto">
+        
+        <!-- Start Button -->
+        <Border Background="#262626" CornerRadius="10" Padding="0" Margin="0, 10, 10, 10"
+                Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+          <Button CornerRadius="10" Background="#262626" Click="btnStart"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+          
+        </Border>
+        
+        <!-- Stop Button -->
+        <Border Background="#262626" CornerRadius="10" Padding="0" Margin="0, 0, 10, 10"
+                Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+          <Button CornerRadius="10" Background="#262626">
+            <Border CornerRadius="22" Width="22" Height="22"
+                      BorderThickness="1.5" BorderBrush="White"
+                      Grid.Column="1" Margin="0" Background="#262626"
+                      ToolTip.Tip="Speed at which to set the output videos. To maintain speed consistency, check that the framerate of all the inputted videos are equal.">
+              <TextBlock Margin="2.51, -5, 0, 0" FontSize="30">/</TextBlock>
+            </Border>
+          </Button>
+          
+        </Border>
       </Grid>
 
     </Grid>
 
     <Grid Grid.Row="2" Height="30" Background="#3c3c3c">
+
+      <TextBlock Margin="6" Foreground="#636363" FontWeight="DemiBold">
+        THIS IS PROTOTYPE SOFTWARE. MILEAGE MAY VARY.
+      </TextBlock>
       
     </Grid>
     
