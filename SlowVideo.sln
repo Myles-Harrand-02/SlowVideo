@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetStartedApp", "GetStartedApp.csproj", "{D5A67E6B-85F8-4465-B5B8-4D8CB846B904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlowVideo", "SlowVideo.csproj", "{D5A67E6B-85F8-4465-B5B8-4D8CB846B904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
